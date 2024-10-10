@@ -1,7 +1,7 @@
 import { IoMdMenu } from "react-icons/io";
 
 const Home = () => {
-  const test = [1,2,3,4,5]
+  const test = [1,2,3,4,5,7]
 
   return (
     <div className="w-full flex flex-col bg-white">
