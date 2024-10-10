@@ -15,7 +15,7 @@ const Home = () => {
       </div>
 
       {test.map((item, index) => (
-        <div className="h-40 flex flex-col border border-b-slate-100">
+        <div key={index} className="h-40 flex flex-col border border-b-slate-100">
           <div className="w-full h-6 text-black">
             날짜 | 작성자 | 카테고리
           </div>
