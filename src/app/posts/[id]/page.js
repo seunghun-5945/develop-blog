@@ -55,8 +55,10 @@ export default async function Post({ params }) {
       </div>
       <div className="prose" dangerouslySetInnerHTML={{ __html: postData.content }} />
 
-      {/* 댓글 기능 추가 */}
-      <Disqus post={postData} />
+      <div className='pt-20'>
+        <Disqus post={postData} />
+      </div>
+
     </div>
   );
 }
