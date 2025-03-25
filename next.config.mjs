@@ -1,9 +1,14 @@
-import mdx from '@next/mdx';
+import withMDX from '@next/mdx';
+import remarkBreaks from 'remark-breaks';
 
-const withMDX = mdx({
+const config = withMDX({
   extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [remarkBreaks],
+  },
 });
 
-export default withMDX({
+export default {
+  ...config,
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
-});
+};
