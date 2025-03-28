@@ -23,10 +23,10 @@ jobs:
       - name: Deploy to home server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOMESERVER_HOST }}
-          username: ${{ secrets.HOMESERVER_USERNAME }}
-          key: ${{ secrets.HOMESERVER_SSH_KEY }}
-          port: ${{ secrets.HOMESERVER_PORT }}
+          host: ${{ secrets.HOME_SERVER_IP }}
+          username: ${{ secrets.HOME_SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
           script: |
             cd /path/to/your/blog
             git pull origin main
