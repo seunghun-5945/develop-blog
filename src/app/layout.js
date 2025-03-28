@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       {" "}
-      {/* 한국어 지원 */}
+      {/* 한국어 지원2 */}
       <body className="w-full flex flex-col bg-white">
         {" "}
         {/* 전체 페이지 레이아웃 */}
