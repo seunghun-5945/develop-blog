@@ -1,0 +1,35 @@
+name: Deploy to Home Server
+
+on:
+  push:
+    branches:
+      - main # main 브랜치에 푸시할 때만 실행됨
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Deploy to home server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOMESERVER_HOST }}
+          username: ${{ secrets.HOMESERVER_USERNAME }}
+          key: ${{ secrets.HOMESERVER_SSH_KEY }}
+          port: ${{ secrets.HOMESERVER_PORT }}
+          script: |
+            cd /path/to/your/blog
+            git pull origin main
+            yarn install --frozen-lockfile
+            yarn build
+            pm2 restart my-blog || pm2 start yarn --name "my-blog" -- start
