@@ -35,7 +35,7 @@ jobs:
           cp -R .next /path/to/production/directory/
           cp -R public /path/to/production/directory/
           cp package.json /path/to/production/directory/
-          cp next.config.js /path/to/production/directory/
+          cp next.config.mjs /path/to/production/directory/
 
       - name: Restart service
         run: |
