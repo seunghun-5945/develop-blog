@@ -37,6 +37,11 @@ jobs:
           cp package.json /path/to/production/directory/
           cp next.config.mjs /path/to/production/directory/
 
+      - name: Install dependencies on server
+        run: |
+          cd /path/to/production/directory
+          yarn install # 배포 후 의존성 설치
+
       - name: Restart service
         run: |
           # PM2나 Systemd 등을 사용하여 서비스 재시작
