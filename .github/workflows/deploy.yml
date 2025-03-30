@@ -42,4 +42,4 @@ jobs:
           # PM2나 Systemd 등을 사용하여 서비스 재시작
           # 예: PM2 사용 시
           cd /path/to/production/directory
-          pm2 restart nextjs-app
+          pm2 restart develop-blog
