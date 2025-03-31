@@ -1,30 +1,37 @@
 import { NextResponse } from "next/server";
 import { execSync } from "child_process";
 
+// 상태를 저장할 변수
+let battery = "N/A";
+let temperature = "N/A";
+
+// 배터리와 CPU 온도 주기적으로 갱신하기
+function updateSystemStatus() {
+  try {
+    // 배터리 상태 가져오기
+    battery = execSync("upower -i $(upower -e | grep BAT) | grep 'percentage'")
+      .toString()
+      .trim();
+  } catch (e) {
+    battery = "Battery info not available";
+  }
+
+  try {
+    // CPU 온도 가져오기
+    temperature = execSync("sensors | grep 'Package id 0' | awk '{print $4}'")
+      .toString()
+      .trim();
+  } catch (e) {
+    temperature = "Temperature info not available";
+  }
+}
+
+// 10초마다 상태 갱신 (주기적으로 갱신)
+setInterval(updateSystemStatus, 10000); // 10초마다 갱신
+
 export async function GET() {
   try {
-    // 배터리 상태 가져오기 (노트북일 경우)
-    let battery = "N/A";
-    try {
-      battery = execSync(
-        "upower -i $(upower -e | grep BAT) | grep 'percentage'"
-      )
-        .toString()
-        .trim();
-    } catch (e) {
-      battery = "Battery info not available";
-    }
-
-    // CPU 온도 가져오기
-    let temperature = "N/A";
-    try {
-      temperature = execSync("sensors | grep 'Package id 0' | awk '{print $4}'")
-        .toString()
-        .trim();
-    } catch (e) {
-      temperature = "Temperature info not available";
-    }
-
+    // 갱신된 배터리 상태와 CPU 온도를 클라이언트에 반환
     return NextResponse.json({ battery, temperature });
   } catch (error) {
     return NextResponse.json(
