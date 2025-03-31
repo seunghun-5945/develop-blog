@@ -13,6 +13,7 @@ function updateSystemStatus() {
       .toString()
       .trim();
   } catch (e) {
+    console.error("Failed to fetch battery info:", e); // 에러 로깅 추가
     battery = "Battery info not available";
   }
 
@@ -22,6 +23,7 @@ function updateSystemStatus() {
       .toString()
       .trim();
   } catch (e) {
+    console.error("Failed to fetch temperature info:", e); // 에러 로깅 추가
     temperature = "Temperature info not available";
   }
 }
