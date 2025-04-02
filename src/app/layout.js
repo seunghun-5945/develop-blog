@@ -1,4 +1,4 @@
-import { IoMdMenu, IoIosSearch } from "react-icons/io";
+import { IoMdMenu, IoIosSearch, IoIosMoon } from "react-icons/io";
 import "./globals.css";
 import Link from "next/link";
 import SystemStatus from "@/components/SystemStatus"; // 서버 상태 컴포넌트 추가
@@ -13,11 +13,12 @@ export default function RootLayout({ children }) {
     <html lang="ko">
       <body className="w-full flex flex-col bg-white">
         {/* 헤더 영역 */}
-        <header className="w-full h-16 md:h-20 bg-gray-800 flex fixed top-0 left-0 items-center justify-between text-white px-4 z-10">
+        <header className="w-full h-16 md:h-20 bg-gray-500 flex fixed top-0 left-0 items-center justify-between text-white px-4 z-10">
           <Link href="/">
-            <h1 className="text-xl md:text-2xl">이승훈 개발 블로그</h1>
+            <h1 className="text-xl md:text-2xl">HoonyDev</h1>
           </Link>
           <div className="flex">
+            <IoIosMoon className="text-white text-2xl cursor-pointer mr-4" />
             <IoIosSearch className="text-white text-2xl cursor-pointer mr-4" />
             <IoMdMenu className="text-2xl md:text-xl cursor-pointer" />
           </div>
@@ -27,9 +28,16 @@ export default function RootLayout({ children }) {
         <main className="mt-16 md:mt-20">{children}</main>
 
         {/* 푸터 영역 */}
-        <footer className="bg-gray-800 text-white p-4 text-center">
-          <p>made by next.js deploy by vercel</p>
-          <SystemStatus /> {/* ✅ 서버 상태 표시 */}
+        <footer className="flex flex-col items-center bg-gray-500 text-white p-4 text-center gap-4">
+          <p>©2025 HoonyDev</p>
+          <div className="w-44 flex gap-2 justify-start">
+            <img src="/Icons/instagram.png" className="w-6" />
+            <p className="text-white">@seunghun5945</p>
+          </div>
+          <div className="w-44 flex gap-2 justify-start">
+            <img src="/Icons/github-mark.png" className="w-6" />
+            <p className="text-white">tmdgns5945</p>
+          </div>
         </footer>
       </body>
     </html>

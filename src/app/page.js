@@ -33,10 +33,15 @@ export default async function Home() {
   return (
     <>
       {/* 배너 영역 */}
-      <div className="w-full h-48 md:h-64 lg:h-80 flex items-center justify-center bg-blue-600">
-        <h1 className="text-xl sm:text-xl md:text-4xl lg:text-6xl font-bold text-white">
-          배너 업데이트 예정
-        </h1>
+      <div className="flex-col md:flex-row w-full h-48 md:h-64 lg:h-80 flex items-center justify-center bg-orange-300">
+        <img
+          src="/Images/hoonydev.png"
+          className="w-24 md:w-40 lg:w-60"
+          alt="Hoonydev Logo"
+        />
+        <p className="mb-4 text-xl md:text-4xl lg:text-6xl font-bold text-white">
+          훈이의 개발 블로그
+        </p>
       </div>
 
       {/* 블로그 포스트 목록 */}
@@ -51,7 +56,7 @@ export default async function Home() {
             </div>
             {/* 포스트 제목 */}
             <div className="w-full">
-              <h2 className="text-3xl text-black font-bold">
+              <h2 className="text-md md:text-3xl text-black font-bold">
                 {post.title || "[제목]"}
               </h2>
             </div>
