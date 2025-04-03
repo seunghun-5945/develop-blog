@@ -1,6 +1,7 @@
 import { IoMdMenu, IoIosSearch, IoIosMoon } from "react-icons/io";
 import "./globals.css";
 import Link from "next/link";
+import Image from "next/image";
 import SystemStatus from "@/components/SystemStatus"; // 서버 상태 컴포넌트 추가
 
 export const metadata = {
@@ -31,11 +32,11 @@ export default function RootLayout({ children }) {
         <footer className="flex flex-col items-center bg-gray-500 text-white p-4 text-center gap-4">
           <p>©2025 HoonyDev</p>
           <div className="w-44 flex gap-2 justify-start">
-            <img src="/Icons/instagram.png" className="w-6" />
+            <Image src="/Icons/instagram.png" className="w-6" />
             <p className="text-white">@seunghun5945</p>
           </div>
           <div className="w-44 flex gap-2 justify-start">
-            <img src="/Icons/github-mark.png" className="w-6" />
+            <Image src="/Icons/github-mark.png" className="w-6" />
             <p className="text-white">tmdgns5945</p>
           </div>
         </footer>
