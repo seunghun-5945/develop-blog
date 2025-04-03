@@ -2,6 +2,7 @@ import fs from "fs"; // 파일 시스템 모듈
 import path from "path"; // 경로 처리 모듈
 import matter from "gray-matter"; // Markdown 파일에서 메타데이터를 파싱하는 라이브러리
 import Link from "next/link"; // 페이지 이동을 위한 Next.js 링크 컴포넌트
+import Image from "next/image";
 
 // 블로그 포스트 목록을 가져오는 함수
 async function getPosts() {
@@ -33,13 +34,15 @@ export default async function Home() {
   return (
     <>
       {/* 배너 영역 */}
-      <div className="flex-col md:flex-row w-full h-48 md:h-64 lg:h-80 flex items-center justify-center bg-orange-300">
-        <img
+      <div className="flex-col w-full h-48 md:h-64 lg:h-80 flex items-center justify-center bg-orange-300">
+        <Image
           src="/Images/hoonydev.png"
-          className="w-24 md:w-40 lg:w-60"
+          width={200}
+          height={200}
           alt="Hoonydev Logo"
+          unoptimized
         />
-        <p className="mb-4 text-xl md:text-4xl lg:text-6xl font-bold text-white">
+        <p className="mb-4 text-xl md:text-4xl p-3 lg:text-6xl font-bold text-white border-4">
           훈이의 개발 블로그
         </p>
       </div>
