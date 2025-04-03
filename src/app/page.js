@@ -36,7 +36,7 @@ export default async function Home() {
       {/* 배너 영역 */}
       <div className="flex-col w-full h-48 md:h-64 lg:h-80 flex items-center justify-center bg-orange-300">
         <Image
-          src="/Images/hoonydev.png"
+          src="/images/hoonydev.png"
           width={200}
           height={200}
           alt="Hoonydev Logo"
