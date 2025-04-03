@@ -35,12 +35,10 @@ export default async function Home() {
     <>
       {/* 배너 영역 */}
       <div className="flex-col w-full h-48 md:h-64 lg:h-80 flex items-center justify-center bg-orange-300">
-        <Image
+        <img
           src="/images/hoonydev.png"
-          width={200}
-          height={200}
+          className="w-24 md:w-40 lg:w-60"
           alt="Hoonydev Logo"
-          unoptimized
         />
         <p className="mb-4 text-xl md:text-4xl p-3 lg:text-6xl font-bold text-white border-4">
           훈이의 개발 블로그

@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
             <p className="text-white">@seunghun5945</p>
           </div>
           <div className="w-44 flex gap-2 justify-start">
-            <img src="/Icons/github-mark.png" className="w-6" />
+            <img src="/icons/github-mark.png" className="w-6" />
             <p className="text-white">tmdgns5945</p>
           </div>
         </footer>
