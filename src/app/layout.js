@@ -1,6 +1,7 @@
 import { IoMdMenu, IoIosSearch, IoIosMoon } from "react-icons/io";
 import "./globals.css";
 import Link from "next/link";
+import VisitorCounter from "@/components/VisitorCounter";
 
 export const metadata = {
   title: "이승훈 개발 블로그",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
             <h1 className="text-xl md:text-2xl">HoonyDev</h1>
           </Link>
           <div className="flex">
+            <VisitorCounter className />
             <IoIosMoon className="text-white text-2xl cursor-pointer mr-4" />
             <IoIosSearch className="text-white text-2xl cursor-pointer mr-4" />
             <IoMdMenu className="text-2xl md:text-xl cursor-pointer" />
