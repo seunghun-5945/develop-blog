@@ -45,7 +45,7 @@ export default async function Home() {
         </p>
       </div>
       {/* 모바일에서만 보이게 */}
-      <CategoryNav className="hidden md:block" />
+      <CategoryNav className="hidden md:flex" />
 
       {/* 블로그 포스트 목록 */}
       {posts.map((post) => (

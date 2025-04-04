@@ -49,7 +49,7 @@ export default async function CategoryPage({ params }) {
         </p>
       </div>
 
-      <CategoryNav />
+      <CategoryNav className="hidden md:flex" />
 
       <h1 className="text-2xl font-bold mb-4 px-4">{category} 카테고리</h1>
 
