@@ -44,7 +44,8 @@ export default async function Home() {
           훈이의 개발 블로그
         </p>
       </div>
-      <CategoryNav />
+      {/* 모바일에서만 보이게 */}
+      <CategoryNav className="hidden md:block" />
 
       {/* 블로그 포스트 목록 */}
       {posts.map((post) => (

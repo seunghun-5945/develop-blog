@@ -17,16 +17,14 @@ function CategoryButton({ children, href, isActive }) {
   );
 }
 
-export default function CategoryNav() {
+export default function CategoryNav({ className = "" }) {
   const pathname = usePathname();
 
   const categories = ["All", "React", "fastapi", "server", "history"];
-
-  // 현재 path에서 선택된 카테고리 추출
   const selected = decodeURIComponent(pathname.split("/")[2] || "All");
 
   return (
-    <nav className="flex justify-center space-x-4 px-4 m-6">
+    <nav className={`flex justify-center space-x-4 px-4 m-6 ${className}`}>
       {categories.map((cat) => {
         const isAll = cat === "All";
         const href = isAll ? "/" : `/category/${cat}`;

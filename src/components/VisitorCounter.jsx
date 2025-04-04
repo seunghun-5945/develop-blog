@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { BsFillPeopleFill } from "react-icons/bs";
 
 export default function VisitorCounter() {
   const [count, setCount] = useState(null);
@@ -16,8 +17,9 @@ export default function VisitorCounter() {
   }, []);
 
   return (
-    <div className="text-md mr-6">
-      Today : <strong>{count === null ? "로딩 중..." : `${count}명`}</strong>
+    <div className="flex text-md mr-6 items-center">
+      <BsFillPeopleFill /> :{" "}
+      <strong>{count === null ? "로딩 중..." : `${count}명`}</strong>
     </div>
   );
 }
