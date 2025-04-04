@@ -1,8 +1,6 @@
 import { IoMdMenu, IoIosSearch, IoIosMoon } from "react-icons/io";
 import "./globals.css";
 import Link from "next/link";
-import Image from "next/image";
-import SystemStatus from "@/components/SystemStatus"; // 서버 상태 컴포넌트 추가
 
 export const metadata = {
   title: "이승훈 개발 블로그",

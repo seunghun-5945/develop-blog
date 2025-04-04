@@ -2,7 +2,7 @@ import fs from "fs"; // 파일 시스템 모듈
 import path from "path"; // 경로 처리 모듈
 import matter from "gray-matter"; // Markdown 파일에서 메타데이터를 파싱하는 라이브러리
 import Link from "next/link"; // 페이지 이동을 위한 Next.js 링크 컴포넌트
-import Image from "next/image";
+import CategoryNav from "@/components/CategoryNav";
 
 // 블로그 포스트 목록을 가져오는 함수
 async function getPosts() {
@@ -44,6 +44,7 @@ export default async function Home() {
           훈이의 개발 블로그
         </p>
       </div>
+      <CategoryNav />
 
       {/* 블로그 포스트 목록 */}
       {posts.map((post) => (
