@@ -6,23 +6,26 @@ import CategoryNav from "@/components/CategoryNav";
 
 // 블로그 포스트 목록을 가져오는 함수
 async function getPosts() {
-  const postsDirectory = path.join(process.cwd(), "posts"); // 'posts' 폴더 경로 설정
-  const filenames = fs.readdirSync(postsDirectory); // 폴더 내 파일 목록 가져오기
+  const postsDirectory = path.join(process.cwd(), "posts");
+  const filenames = fs.readdirSync(postsDirectory);
 
   const posts = filenames.map((filename) => {
-    const filePath = path.join(postsDirectory, filename); // 각 파일의 전체 경로
-    const fileContents = fs.readFileSync(filePath, "utf8"); // 파일 내용 읽기
-    const { data } = matter(fileContents); // 메타데이터 추출
+    const filePath = path.join(postsDirectory, filename);
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const { data } = matter(fileContents);
 
     return {
-      id: filename.replace(/\.mdx?$/, ""), // 파일명에서 확장자 제거하여 ID 설정
-      title: data.title, // 제목
-      date: data.date, // 작성 날짜
-      author: data.author, // 작성자
-      category: data.category, // 카테고리
-      preview: data.preview, // 미리보기 텍스트
+      id: filename.replace(/\.mdx?$/, ""),
+      title: data.title,
+      date: data.date,
+      author: data.author,
+      category: data.category,
+      preview: data.preview,
     };
   });
+
+  // 날짜 기준 내림차순 정렬 (최신글이 위로)
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return posts;
 }
