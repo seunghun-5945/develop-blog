@@ -34,7 +34,7 @@ export default async function Home() {
   return (
     <>
       {/* 배너 영역 */}
-      <div className="flex-col w-full h-48 md:h-64 lg:h-80 flex items-center justify-center bg-orange-300">
+      <div className="flex flex-col md:flex-row md:gap-8  w-full h-48 md:h-64 lg:h-80 items-center justify-center bg-orange-300">
         <img
           src="/images/hoonydev.png"
           className="w-24 md:w-40 lg:w-60"

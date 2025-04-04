@@ -67,7 +67,7 @@ export default async function Post({ params }) {
         <hr className="w-full border-t-2 border-gray-300 my-4" />
 
         {/* Markdown 변환 */}
-        <div className="flex flex-col px-6 md:px-0 md:w-2/3 py-10 mx-auto text-black items-center prose">
+        <div className="flex flex-col px-6 md:px-0 md:w-2/3 py-10 mx-auto text-black prose">
           <ReactMarkdown rehypePlugins={[rehypeRaw]}>
             {postData.content}
           </ReactMarkdown>
