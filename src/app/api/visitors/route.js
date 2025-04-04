@@ -36,10 +36,13 @@ export async function POST() {
     const result = await collection.findOneAndUpdate(
       { date: today },
       { $inc: { count: 1 } },
-      { upsert: true, returnDocument: "after" }
+      { upsert: true, returnDocument: "after" } // 이 옵션은 버전에 따라 동작 안할 수도 있음
     );
 
-    return new Response(JSON.stringify(result.value), {
+    const updated =
+      result?.value || (await collection.findOne({ date: today }));
+
+    return new Response(JSON.stringify(updated), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
